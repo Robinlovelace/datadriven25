@@ -1,5 +1,5 @@
 ---
-title: "Will it fit? New methods and datasets for data-driven and sustainable transport planning"
+title: "Will it fit? New methods and datasets for integrating diverse datasets for transport planning"
 subtitle: "Data Driven 2025<br>Reproducible slides: [robinlovelace.github.io/datadriven25](https://robinlovelace.github.io/datadriven25). Source code: [github.com](https://github.com/robinlovelace/datadriven25)"
 format: 
   clean-revealjs:
