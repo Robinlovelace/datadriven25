@@ -82,11 +82,15 @@ To be launched soon [npt.scot](https://www.npt.scot).
 
 ![](images/paste-3.png)
 
-## Uses of width data
+## Example with limited edge-to-edge width
 
 ![](images/paste-13.png)
 
-![](images/paste-12.png)
+## Validation
+
+Source: [Google StreetView](https://www.google.com/maps/place/55%C2%B057'00.2%22N+3%C2%B011'15.0%22W/@55.9500737,-3.187801,63m/data=!3m1!1e3!4m10!1m5!3m4!2zNTXCsDU3JzAwLjkiTiAzwrAxMCc1OS4zIlc!8m2!3d55.950256!4d-3.183149!3m3!8m2!3d55.950054!4d-3.187507?entry=ttu&g_ep=EgoyMDI1MDMxMi4wIKXMDSoJLDEwMjExNDUzSAFQAw%3D%3D)
+
+![](images/paste-14.png)
 
 ## data pipeline
 
