@@ -230,6 +230,7 @@ remotes::install_github("nptscot/osmactive")
 library(osmactive)
 case_study_location_area = zonebuilder::zb_zone("pall mall london", n_circles = 2) |>
   sf::st_union()
+# ?osmextract::oe_get
 osm = get_travel_network(case_study_location_area, boundary = case_study_location_area, boundary_type = "clipsrc")
 cycle_net = get_cycling_network(osm)
 drive_net = get_driving_network(osm)
