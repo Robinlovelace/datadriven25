@@ -81,8 +81,6 @@ Available at [transport.gov.scot](https://www.transport.gov.scot/media/50323/cyc
 -   Presents new geographic methods developed to support this work.
 -   Uses `osmactive` R package and `anime` Rust crate.
 
-# Existing cycle network quality layer {background-image="images/screencast-clos.gif"}
-
 # Streetspace layer
 
 To be launched soon [npt.scot](https://www.npt.scot).
@@ -91,7 +89,7 @@ To be launched soon [npt.scot](https://www.npt.scot).
 
 ![](images/paste-3.png)
 
-## Key technical challenges
+## Data pipiline
 
 ```{mermaid}
 graph TD
@@ -112,8 +110,8 @@ graph TD
 
   subgraph output_layer ["Output Layer"]
     direction TB
-    OSM_Los["Level of Service layer"]
-    OS_OpenRoads["Streetspace layer"]
+    OSM_Los["Level of Service layer (OSM)"]
+    OS_OpenRoads["Streetspace layer (OS OpenRoads)"]
 
   end
 
@@ -292,14 +290,6 @@ See [Chapter 9 of Geocomputation with R at geocompx.org](https://r.geocompx.org/
 -   New street space layer: step change in access to combined carriageway and corridor widths. -->
 ```
 
-## Live demo
-
-See [www.npt.scot](https://www.npt.scot) for live demo.
-
-<!-- gif: -->
-
-![](images/screencast-clos.gif)
-
 ## Future work
 
 -   Improve NPT by incorporating new datasets.
@@ -310,9 +300,9 @@ See [www.npt.scot](https://www.npt.scot) for live demo.
 
 Reproducible slides: [robinlovelace.github.io/datadriven25](https://robinlovelace.github.io/datadriven25)
 
-# Plugs
+# Plugs {visibility="uncounted"}
 
-## Transport data mini-hack, 8th May:
+## Transport data mini-hack, 8th May **one week today** {visibility="uncounted"}
 
 Afternoon event at the University of Leeds before inaugural lecture on transport data science.
 <!-- https://itsleeds.github.io/tds/minihack-transport-data.html --> See [itsleeds.github.io](https://itsleeds.github.io/tds/minihack-transport-data.html) for details.
@@ -321,7 +311,7 @@ Afternoon event at the University of Leeds before inaugural lecture on transport
 
 Reproducible slides: [robinlovelace.github.io/datadriven25](https://robinlovelace.github.io/datadriven25)
 
-## Want to learn more?
+## Transport Data Science workshop, 18th-19th September {visibility="uncounted"}
 
 Upcoming 2-day workshop on Data Science for Transport Planning (18th to 19th September).
 <!-- https://itsleeds.github.io/tds/dstp.html --> See [itsleeds.github.io](https://itsleeds.github.io/tds/dstp.html) for details.
@@ -330,23 +320,35 @@ Upcoming 2-day workshop on Data Science for Transport Planning (18th to 19th Sep
 
 Reproducible slides: [robinlovelace.github.io/datadriven25](https://robinlovelace.github.io/datadriven25)
 
-# Details
+# Further information {visibility="uncounted"}
 
-## Road width measurements
+## Live demo {visibility="uncounted"}
+
+See [www.npt.scot](https://www.npt.scot) for live demo of production version of NPT.
+
+<!-- gif: -->
+
+![](images/screencast-clos.gif)
+
+## Road width measurements {visibility="uncounted"}
 
 -   Carriageway width and corridor width are key measurements.
 -   Carriageway width determines if infrastructure can fit within the carriageway.
 -   Corridor width captures carriageway plus roadside features.
 -   `get_pavement_widths()` function in `osmactive` package.
 
-## Minimum cycle track and buffer widths
+## Minimum cycle track and buffer widths {visibility="uncounted"}
 
 -   Corridor width determines if footway can be reallocated for cycle infrastructure.
 -   Cycling by Design (CbD) guidance on widths and buffers.
 -   Speed limit data from OSM used for buffer widths.
 
-## Bus routes and road traffic assumptions
+## Bus routes and road traffic assumptions {visibility="uncounted"}
 
 -   Minimum space requirements for motor traffic depend on bus routes and lanes.
 -   Active Travel England cross section check tool.
 -   `get_bus_routes()` function in `osmactive` package.
+
+# Existing cycle network quality layer {background-image="images/screencast-clos.gif"}
+
+## References {visibility="uncounted"}
