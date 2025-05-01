@@ -74,13 +74,19 @@ Available at [transport.gov.scot](https://www.transport.gov.scot/media/50323/cyc
 
 ![](images/paste-11.png)
 
-# Streetspace layer
+## Streetspace layer
 
 To be launched soon [npt.scot](https://www.npt.scot).
 
 [Contains OS data © Crown copyright and database rights 2025 OS licence number 100046668.]{style="font-size: small;"}
 
 ![](images/paste-3.png)
+
+## Uses of width data
+
+![](images/paste-13.png)
+
+![](images/paste-12.png)
 
 ## data pipeline
 
