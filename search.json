@@ -21,11 +21,11 @@
     "text": "Cycling by Design\nThe bible of Scottish cycling infrastructure planning.\n\nAvailable at transport.gov.scot."
   },
   {
-    "objectID": "slides.html#key-features-of-the-npt",
-    "href": "slides.html#key-features-of-the-npt",
+    "objectID": "slides.html#cross-sectional-width-guidance",
+    "href": "slides.html#cross-sectional-width-guidance",
     "title": "Will it fit? New methods and datasets for data-driven and sustainable transport planning",
-    "section": "Key features of the NPT",
-    "text": "Key features of the NPT\n\nFunded by Transport Scotland to support £millions of investment in active travel.\nDeveloped by the University of Leeds in collaboration with Sustrans Scotland.\nOpen-source and hosted at github.com/nptscot.\nIntegration of multiple layers into a single tool.\nOvercoming limitations of previous strategic network planning tools.\nBrings together more than a dozen datasets, including Ordnance Survey Mastermap and OpenStreetmap data products.\nPresents new geographic methods developed to support this work.\nUses osmactive R package and anime Rust crate."
+    "section": "Cross-sectional width guidance",
+    "text": "Cross-sectional width guidance"
   },
   {
     "objectID": "slides.html#data-pipiline",
@@ -96,6 +96,13 @@
     "title": "Will it fit? New methods and datasets for data-driven and sustainable transport planning",
     "section": "Transport Data Science workshop, 18th-19th September",
     "text": "Transport Data Science workshop, 18th-19th September\nUpcoming 2-day workshop on Data Science for Transport Planning (18th to 19th September).  See itsleeds.github.io for details.\n\nReproducible slides: robinlovelace.github.io/datadriven25"
+  },
+  {
+    "objectID": "slides.html#key-features-of-the-npt",
+    "href": "slides.html#key-features-of-the-npt",
+    "title": "Will it fit? New methods and datasets for data-driven and sustainable transport planning",
+    "section": "Key features of the NPT",
+    "text": "Key features of the NPT\n\nFunded by Transport Scotland to support £millions of investment in active travel.\nDeveloped by the University of Leeds in collaboration with Sustrans Scotland.\nOpen-source and hosted at github.com/nptscot.\nIntegration of multiple layers into a single tool.\nOvercoming limitations of previous strategic network planning tools.\nBrings together more than a dozen datasets, including Ordnance Survey Mastermap and OpenStreetmap data products.\nPresents new geographic methods developed to support this work.\nUses osmactive R package and anime Rust crate."
   },
   {
     "objectID": "slides.html#live-demo",
