@@ -1,6 +1,6 @@
 ---
-title: "Mapping, classifying, and integrating diverse street network datasets: new methods and open source tools for active travel planning"
-subtitle: "GISRUK 2025 (Reproducible slides: [robinlovelace.github.io/gisruk2025](https://robinlovelace.github.io/gisruk2025). Source code: [github.com](https://github.com/robinlovelace/gisruk2025))"
+title: "Will it fit? New methods and datasets for data-driven and sustainable transport planning"
+subtitle: "GISRUK 2025 (Reproducible slides: [robinlovelace.github.io/datadriven25](https://robinlovelace.github.io/datadriven25). Source code: [github.com](https://github.com/robinlovelace/datadriven25))"
 format: 
   clean-revealjs:
     self-contained: true
@@ -308,7 +308,7 @@ See [www.npt.scot](https://www.npt.scot) for live demo.
 -   Support roll-out of methods in new places.
 -   Interested? Get in touch!
 
-Reproducible slides: [robinlovelace.github.io/gisruk2025](https://robinlovelace.github.io/gisruk2025)
+Reproducible slides: [robinlovelace.github.io/datadriven25](https://robinlovelace.github.io/datadriven25)
 
 # Plugs
 
@@ -319,7 +319,7 @@ Afternoon event at the University of Leeds before inaugural lecture on transport
 
 ![](images/paste-6.png)
 
-Reproducible slides: [robinlovelace.github.io/gisruk2025](https://robinlovelace.github.io/gisruk2025)
+Reproducible slides: [robinlovelace.github.io/datadriven25](https://robinlovelace.github.io/datadriven25)
 
 ## Want to learn more?
 
@@ -328,7 +328,7 @@ Upcoming 2-day workshop on Data Science for Transport Planning (18th to 19th Sep
 
 ![](images/paste-5.png)
 
-Reproducible slides: [robinlovelace.github.io/gisruk2025](https://robinlovelace.github.io/gisruk2025)
+Reproducible slides: [robinlovelace.github.io/datadriven25](https://robinlovelace.github.io/datadriven25)
 
 # Details
 
