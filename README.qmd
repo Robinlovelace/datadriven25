@@ -13,12 +13,20 @@ See below for details on how this was set-up.
 ```{bash}
 #| eval: false
 gh repo clone robinlovelace/gisruk2025
-cp -rv gisruk2025/. .
+cp -rv ../gisruk2025/images .
+cp -rv ../gisruk2025/slides.qmd .
+cp -rv ../gisruk2025/_quarto.yml .
+cp -rv ../gisruk2025/.devcontainer.json .
 # Or if you have it locally:
 cp -rv ../gisruk2025/. .
 git add slides.qmd
 git add images
 git status
+```
+
+```{bash}
+#| eval: false
+quarto add grantmcdermott/quarto-revealjs-clean
 ```
 
 # reproducible-slides-repo-template
