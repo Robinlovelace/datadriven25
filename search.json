@@ -2,161 +2,161 @@
   {
     "objectID": "slides.html#introduction",
     "href": "slides.html#introduction",
-    "title": "Will it fit? New methods and datasets for integrating diverse datasets for transport planning",
+    "title": "Will it fit? New methods for integrating diverse datasets for transport planning",
     "section": "Introduction",
     "text": "Introduction\n(Why work on this?)"
   },
   {
     "objectID": "slides.html#network-planning-tool-npt-for-scotland",
     "href": "slides.html#network-planning-tool-npt-for-scotland",
-    "title": "Will it fit? New methods and datasets for integrating diverse datasets for transport planning",
+    "title": "Will it fit? New methods for integrating diverse datasets for transport planning",
     "section": "Network Planning Tool (NPT) for Scotland",
     "text": "Network Planning Tool (NPT) for Scotland\nWeb app deployed at npt.scot for cycle network planning in Scotland.\n\n\n\nNew web-based strategic network planning tool that estimates cycling potential down to the street level.\nBuilds on the functionality of the Propensity to Cycle Tool (PCT) and related tools.\nFunded by Transport Scotland and developed by the University of Leeds in collaboration with Sustrans Scotland.\nOpen-source and hosted at github.com/nptscot."
   },
   {
     "objectID": "slides.html#cycling-by-design",
     "href": "slides.html#cycling-by-design",
-    "title": "Will it fit? New methods and datasets for integrating diverse datasets for transport planning",
+    "title": "Will it fit? New methods for integrating diverse datasets for transport planning",
     "section": "Cycling by Design",
     "text": "Cycling by Design\nThe bible of Scottish cycling infrastructure planning.\n\nAvailable at transport.gov.scot."
   },
   {
     "objectID": "slides.html#cross-sectional-width-guidance",
     "href": "slides.html#cross-sectional-width-guidance",
-    "title": "Will it fit? New methods and datasets for integrating diverse datasets for transport planning",
+    "title": "Will it fit? New methods for integrating diverse datasets for transport planning",
     "section": "Cross-sectional width guidance",
     "text": "Cross-sectional width guidance"
   },
   {
     "objectID": "slides.html#streetspace-layer",
     "href": "slides.html#streetspace-layer",
-    "title": "Will it fit? New methods and datasets for integrating diverse datasets for transport planning",
+    "title": "Will it fit? New methods for integrating diverse datasets for transport planning",
     "section": "Streetspace layer",
     "text": "Streetspace layer\nTo be launched soon npt.scot.\nContains OS data © Crown copyright and database rights 2025 OS licence number 100046668."
   },
   {
     "objectID": "slides.html#example-with-limited-edge-to-edge-width",
     "href": "slides.html#example-with-limited-edge-to-edge-width",
-    "title": "Will it fit? New methods and datasets for integrating diverse datasets for transport planning",
+    "title": "Will it fit? New methods for integrating diverse datasets for transport planning",
     "section": "Example with limited edge-to-edge width",
     "text": "Example with limited edge-to-edge width"
   },
   {
     "objectID": "slides.html#validation",
     "href": "slides.html#validation",
-    "title": "Will it fit? New methods and datasets for integrating diverse datasets for transport planning",
+    "title": "Will it fit? New methods for integrating diverse datasets for transport planning",
     "section": "Validation",
     "text": "Validation\nSource: Google StreetView"
   },
   {
     "objectID": "slides.html#data-pipeline",
     "href": "slides.html#data-pipeline",
-    "title": "Will it fit? New methods and datasets for integrating diverse datasets for transport planning",
+    "title": "Will it fit? New methods for integrating diverse datasets for transport planning",
     "section": "data pipeline",
     "text": "data pipeline\n\n\n\n\n\ngraph TD\n  subgraph data_sources [\"Data Sources\"]\n    direction TB\n    OS_MasterMap_Topo[\"OS MasterMap Topo\"]\n    OS_MasterMap_Highways_Source[\"OS MasterMap Highways\"]\n    OSM_Source[\"OpenStreetMap\"]\n  end\n\n  subgraph processing_integration [\"Processing & Integration\"]\n    direction TB\n    Pavement_Polygons[\"Pavement polygons\"]\n    Pavement_Widths[\"Pavement widths\"]\n    Highway_Widths[\"Highway widths, Hierarchy, ..\"]\n    OSM_Derived[\"Max Speed, Type, ...\"]\n  end\n\n  subgraph output_layer [\"Output Layer\"]\n    direction TB\n    OSM_Los[\"Level of Service layer (OSM)\"]\n    OS_OpenRoads[\"Streetspace layer (OS OpenRoads)\"]\n\n  end\n\n  OS_MasterMap_Topo --&gt; Pavement_Polygons\n  Pavement_Polygons --&gt; Pavement_Widths\n  OS_MasterMap_Highways_Source --&gt; Highway_Widths\n  OSM_Source --&gt; OSM_Derived\n  Highway_Widths --&gt; OSM_Los\n\n  Pavement_Widths --&gt; OS_OpenRoads\n  Highway_Widths --&gt; OS_OpenRoads\n  OSM_Derived --&gt; OS_OpenRoads\n  OSM_Derived --&gt; OSM_Los\n\n\n  style data_sources fill:#f0f0f0,stroke:#333,stroke-width:2px,color:#000\n  style processing_integration fill:#f0f0f0,stroke:#333,stroke-width:2px,color:#000\n  style output_layer fill:#f0f0f0,stroke:#333,stroke-width:2px,color:#000\n\n  %% Style definitions for better colors\n  style OS_MasterMap_Topo fill:#f9f,stroke:#333,stroke-width:2px,color:#000\n  style OS_MasterMap_Highways_Source fill:#f9f,stroke:#333,stroke-width:2px,color:#000\n  style OSM_Source fill:#f9f,stroke:#333,stroke-width:2px,color:#000\n\n  style Pavement_Polygons fill:#ccf,stroke:#333,stroke-width:2px,color:#000\n  style Pavement_Widths fill:#ccf,stroke:#333,stroke-width:2px,color:#000\n  style Highway_Widths fill:#ccf,stroke:#333,stroke-width:2px,color:#000\n  style OSM_Derived fill:#ccf,stroke:#333,stroke-width:2px,color:#000\n\n  style OS_OpenRoads fill:#9cf,stroke:#333,stroke-width:2px,color:#000\n\n  %% Style definition for the main graph background\n  classDef default fill:#f0f0f0,stroke:#333,stroke-width:2px,color:#000\n\n\n\n\n\n\n\n\nIntegrating multiple datasets into a single tool.\nNetwork joins"
   },
   {
     "objectID": "slides.html#datasets",
     "href": "slides.html#datasets",
-    "title": "Will it fit? New methods and datasets for integrating diverse datasets for transport planning",
+    "title": "Will it fit? New methods for integrating diverse datasets for transport planning",
     "section": "Datasets",
     "text": "Datasets\n\nOrdnance Survey OpenRoads\nOS MasterMap Highways\nOS Mastermap Topography\nOpenStreetMap\nNRS (National Records of Scotland) data on travel to school\nNRS data on travel to work (Data Zone level)\nScottish Household Survey (SHS) data\nNational Travel Survey (NTS) data\nData from spatial interaction models (SIMs)"
   },
   {
     "objectID": "slides.html#software",
     "href": "slides.html#software",
-    "title": "Will it fit? New methods and datasets for integrating diverse datasets for transport planning",
+    "title": "Will it fit? New methods for integrating diverse datasets for transport planning",
     "section": "Software",
     "text": "Software\nCode is available and maintained at github.com/nptscot\n\nBackend written in R\nFrontend of NPT web application written in ‘vanilla’ JavaScript\nNPW (Network Planning Workspace) web application written in Rust and Svelte\nSee nptscot.github.io/npw\nmastermapr R package for importing MasterMap datasets\nosmactive R package for classifying OSM data\nanime Rust crate for network integration"
   },
   {
     "objectID": "slides.html#anime-rust-crate",
     "href": "slides.html#anime-rust-crate",
-    "title": "Will it fit? New methods and datasets for integrating diverse datasets for transport planning",
+    "title": "Will it fit? New methods for integrating diverse datasets for transport planning",
     "section": "anime Rust crate",
     "text": "anime Rust crate\n\nSee github.com/JosiahParry"
   },
   {
     "objectID": "slides.html#key-functions",
     "href": "slides.html#key-functions",
-    "title": "Will it fit? New methods and datasets for integrating diverse datasets for transport planning",
+    "title": "Will it fit? New methods for integrating diverse datasets for transport planning",
     "section": "Key functions",
     "text": "Key functions\n\nFunctions including get_travel_network() and classify_cycle_infrastructure() from the osmactive package.\nClassify cycle infrastructure types based on the presence of cycle lanes, tracks, and other features.\ndistance_to_road() function to calculate distances to roads.\nget_pavement_widths() function to calculate pavement widths\nget_bus_routes() function to determine bus lanes\nclassify_cycle_infrastructure() function to classify cycle infrastructure"
   },
   {
     "objectID": "slides.html#live-demo-getting-active-travel-network-data",
     "href": "slides.html#live-demo-getting-active-travel-network-data",
-    "title": "Will it fit? New methods and datasets for integrating diverse datasets for transport planning",
+    "title": "Will it fit? New methods for integrating diverse datasets for transport planning",
     "section": "Live demo: getting active travel network data",
     "text": "Live demo: getting active travel network data\n\nremotes::install_github(\"nptscot/osmactive\")\nlibrary(osmactive)\ncase_study_location_area = zonebuilder::zb_zone(\"pall mall london\", n_circles = 1) |&gt;\n  sf::st_union()\ncase_study_centroid = sf::st_centroid(case_study_location_area)\n# ?osmextract::oe_get\nosm = get_travel_network(case_study_location_area, boundary = case_study_location_area, boundary_type = \"clipsrc\")\ncycle_net = get_cycling_network(osm)\ndrive_net = get_driving_network(osm)\ncycle_net = distance_to_road(cycle_net, drive_net)\ncycle_net = classify_cycle_infrastructure(cycle_net)"
   },
   {
     "objectID": "slides.html#interactive-osmactive-plots-with-geocompx-stack",
     "href": "slides.html#interactive-osmactive-plots-with-geocompx-stack",
-    "title": "Will it fit? New methods and datasets for integrating diverse datasets for transport planning",
+    "title": "Will it fit? New methods for integrating diverse datasets for transport planning",
     "section": "Interactive osmactive plots with ‘geocompx’ stack",
     "text": "Interactive osmactive plots with ‘geocompx’ stack\n\n\n\n\n\n\n\n\n\nSee Chapter 9 of Geocomputation with R at geocompx.org for more details (Lovelace, Nowosad, and Münchow 2025)."
   },
   {
     "objectID": "slides.html#future-work",
     "href": "slides.html#future-work",
-    "title": "Will it fit? New methods and datasets for integrating diverse datasets for transport planning",
+    "title": "Will it fit? New methods for integrating diverse datasets for transport planning",
     "section": "Future work",
     "text": "Future work\n\nImprove NPT by incorporating new datasets.\nDevelop context-specific classifications in osmactive package.\nWork on the anime Rust crate and packages for ease of use (and paper)\nSupport roll-out of methods in new places.\nInterested? Get in touch!\n\nReproducible slides: robinlovelace.github.io/datadriven25"
   },
   {
     "objectID": "slides.html#transport-data-mini-hack-8th-may-one-week-today",
     "href": "slides.html#transport-data-mini-hack-8th-may-one-week-today",
-    "title": "Will it fit? New methods and datasets for integrating diverse datasets for transport planning",
+    "title": "Will it fit? New methods for integrating diverse datasets for transport planning",
     "section": "Transport data mini-hack, 8th May one week today",
     "text": "Transport data mini-hack, 8th May one week today\nAfternoon event at the University of Leeds before inaugural lecture on transport data science.  See itsleeds.github.io for details.\n\nReproducible slides: robinlovelace.github.io/datadriven25"
   },
   {
     "objectID": "slides.html#transport-data-science-workshop-18th-19th-september",
     "href": "slides.html#transport-data-science-workshop-18th-19th-september",
-    "title": "Will it fit? New methods and datasets for integrating diverse datasets for transport planning",
+    "title": "Will it fit? New methods for integrating diverse datasets for transport planning",
     "section": "Transport Data Science workshop, 18th-19th September",
     "text": "Transport Data Science workshop, 18th-19th September\nUpcoming 2-day workshop on Data Science for Transport Planning (18th to 19th September).  See itsleeds.github.io for details.\n\nReproducible slides: robinlovelace.github.io/datadriven25"
   },
   {
     "objectID": "slides.html#key-features-of-the-npt",
     "href": "slides.html#key-features-of-the-npt",
-    "title": "Will it fit? New methods and datasets for integrating diverse datasets for transport planning",
+    "title": "Will it fit? New methods for integrating diverse datasets for transport planning",
     "section": "Key features of the NPT",
     "text": "Key features of the NPT\n\nFunded by Transport Scotland to support £millions of investment in active travel.\nDeveloped by the University of Leeds in collaboration with Sustrans Scotland.\nOpen-source and hosted at github.com/nptscot.\nIntegration of multiple layers into a single tool.\nOvercoming limitations of previous strategic network planning tools.\nBrings together more than a dozen datasets, including Ordnance Survey Mastermap and OpenStreetmap data products.\nPresents new geographic methods developed to support this work.\nUses osmactive R package and anime Rust crate."
   },
   {
     "objectID": "slides.html#live-demo",
     "href": "slides.html#live-demo",
-    "title": "Will it fit? New methods and datasets for integrating diverse datasets for transport planning",
+    "title": "Will it fit? New methods for integrating diverse datasets for transport planning",
     "section": "Live demo",
     "text": "Live demo\nSee www.npt.scot for live demo of production version of NPT."
   },
   {
     "objectID": "slides.html#road-width-measurements",
     "href": "slides.html#road-width-measurements",
-    "title": "Will it fit? New methods and datasets for integrating diverse datasets for transport planning",
+    "title": "Will it fit? New methods for integrating diverse datasets for transport planning",
     "section": "Road width measurements",
     "text": "Road width measurements\n\nCarriageway width and corridor width are key measurements.\nCarriageway width determines if infrastructure can fit within the carriageway.\nCorridor width captures carriageway plus roadside features.\nget_pavement_widths() function in osmactive package."
   },
   {
     "objectID": "slides.html#minimum-cycle-track-and-buffer-widths",
     "href": "slides.html#minimum-cycle-track-and-buffer-widths",
-    "title": "Will it fit? New methods and datasets for integrating diverse datasets for transport planning",
+    "title": "Will it fit? New methods for integrating diverse datasets for transport planning",
     "section": "Minimum cycle track and buffer widths",
     "text": "Minimum cycle track and buffer widths\n\nCorridor width determines if footway can be reallocated for cycle infrastructure.\nCycling by Design (CbD) guidance on widths and buffers.\nSpeed limit data from OSM used for buffer widths."
   },
   {
     "objectID": "slides.html#bus-routes-and-road-traffic-assumptions",
     "href": "slides.html#bus-routes-and-road-traffic-assumptions",
-    "title": "Will it fit? New methods and datasets for integrating diverse datasets for transport planning",
+    "title": "Will it fit? New methods for integrating diverse datasets for transport planning",
     "section": "Bus routes and road traffic assumptions",
     "text": "Bus routes and road traffic assumptions\n\nMinimum space requirements for motor traffic depend on bus routes and lanes.\nActive Travel England cross section check tool.\nget_bus_routes() function in osmactive package."
   },
   {
     "objectID": "slides.html#references",
     "href": "slides.html#references",
-    "title": "Will it fit? New methods and datasets for integrating diverse datasets for transport planning",
+    "title": "Will it fit? New methods for integrating diverse datasets for transport planning",
     "section": "References",
     "text": "References\n\n\n\n\nLovelace, Robin, Jakub Nowosad, and Jannes Münchow. 2025. Geocomputation with R. CRC Press. https://r.geocompx.org/."
   }
