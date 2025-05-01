@@ -41,21 +41,11 @@ execute:
   eval: true
 ---
 
-<!-- ## Abstract
-
-Evidence on street networks and their potential changes under future scenarios is crucial for active travel planning.
-However, most active travel models rely on oversimplified street representations, using single variables like 'quietness', neglecting key factors such as footway widths.
-This paper introduces new methods for classifying street networks for active travel, integrating diverse datasets from OpenStreetMap and official sources.
-Implemented in open source software packages `osmactive` and `anime`, these methods are scalable and reproducible.
-The results are showcased in a web application hosted at www.npt.scot, demonstrating how geographic data science can drive high-impact research.
-
-```         
-network analysis, transport planning, OpenStreetMap, active travel, reproducible research
-``` -->
-
-# Introduction
+## Introduction
 
 ([W](https://photos.lovelaces.org/share/eOsyK8ibSUKMgnCJFaP_DF76l4kKrMvDhQXidzvbh8KbOyfTawwZNREMN8YUQvUuV4s)hy work on this?)
+
+![](images/paste-10.png)
 
 ## Network Planning Tool (NPT) for Scotland
 
@@ -95,9 +85,9 @@ Available at [transport.gov.scot](https://www.transport.gov.scot/media/50323/cyc
 
 # Streetspace layer
 
-See live demo at [npt.scot](https://www.npt.scot).
+To be launched soon [npt.scot](https://www.npt.scot).
 
-<span style="font-size: small;">Contains OS data © Crown copyright and database rights 2025 OS licence number 100046668.</span>
+[Contains OS data © Crown copyright and database rights 2025 OS licence number 100046668.]{style="font-size: small;"}
 
 ![](images/paste-3.png)
 
@@ -256,23 +246,26 @@ plot_osm_tmap(cycle_net) +
   tmap::qtm(case_study_centroid)
 ```
 
-![](images/paste-9.png)
+![](images/cycle_net_pall_mall.png)
 
-## Interactive plotting
+## Interactive [osmactive](https://github.com/nptscot/osmactive/releases/download/v0.1/cycle_net_bristol.html) plots with ['geocompx'](https://geocompx.org) stack
 
-Via Geocomputation with R 'stack' (tmap package, mapgl version in progress)
+<!-- Via Geocomputation with R 'stack' (tmap package, mapgl version in progress) -->
 
-See [github.com/nptscot/osmactive/releases](https://github.com/nptscot/osmactive/releases/download/v0.1/cycle_net_bristol.html) for interactive version
+<!-- See [github.com/nptscot/osmactive/releases](https://github.com/nptscot/osmactive/releases/download/v0.1/cycle_net_bristol.html) for interactive version -->
 
 ```{r}
 #| echo: false
-#| eval: false
+#| eval: true
 tmap::tmap_mode("view")
 m = plot_osm_tmap(cycle_net)
-tmap::tmap_save(m, "images/cycle_net_pall_mall.png")
+m
+# tmap::tmap_save(m, "images/cycle_net_pall_mall.png")
 ```
 
-![](images/cycle_net_pall_mall.png)
+See [Chapter 9 of Geocomputation with R at geocompx.org](https://r.geocompx.org/adv-map) for more details [@lovelace2025].
+
+<!-- ![](images/cycle_net_pall_mall.png) -->
 
 ```{=html}
 <!-- # Results
