@@ -1,0 +1,352 @@
+---
+title: "Mapping, classifying, and integrating diverse street network datasets: new methods and open source tools for active travel planning"
+subtitle: "GISRUK 2025 (Reproducible slides: [robinlovelace.github.io/gisruk2025](https://robinlovelace.github.io/gisruk2025). Source code: [github.com](https://github.com/robinlovelace/gisruk2025))"
+format: 
+  clean-revealjs:
+    self-contained: true
+preload-iframes: true
+html-math-method:
+  method: mathjax
+  url: "https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"
+author:
+  - name: Robin Lovelace
+    affiliation: Leeds Institute for Transport Studies, University of Leeds, UK
+    orcid: 0000-0001-5679-6536
+  - name: Zhao Wang
+    affiliation: Leeds Institute for Transport Studies, University of Leeds, UK
+    orcid: 0000-0002-4054-0533
+  - name: Hussein Mahfouz
+    affiliation: Leeds Institute for Transport Studies, University of Leeds, UK
+    orcid: 0000-0002-6043-8616
+  - name: Juan Pablo Fonseca Zamora
+    affiliation: Leeds Institute for Transport Studies, University of Leeds, UK
+    orcid: 0009-0006-7042-3828
+  - name: Angus Calder
+    affiliation: Sustrans Scotland
+  - name: Martin Lucas-Smith
+    affiliation: CycleStreets Ltd, Cambridge, UK
+  - name: Dustin Carlino
+    affiliation: Alan Turing Institute, London, UK
+    orcid: 0000-0002-5565-0989
+  - name: Josiah Parry
+    affiliation: Environmental Systems Research Institute (Esri), Redlands, CA, USA 
+    orcid: 0000-0001-9910-865X
+  - name: Rosa Félix
+    affiliation: University of Lisbon
+    orcid: 0000-0002-5642-6006
+date: last-modified
+bibliography: references.bib
+execute: 
+  echo: false
+  eval: true
+---
+
+## Abstract
+
+Evidence on street networks and their potential changes under future scenarios is crucial for active travel planning.
+However, most active travel models rely on oversimplified street representations, using single variables like 'quietness', neglecting key factors such as footway widths.
+This paper introduces new methods for classifying street networks for active travel, integrating diverse datasets from OpenStreetMap and official sources.
+Implemented in open source software packages `osmactive` and `anime`, these methods are scalable and reproducible.
+The results are showcased in a web application hosted at www.npt.scot, demonstrating how geographic data science can drive high-impact research.
+
+```         
+network analysis, transport planning, OpenStreetMap, active travel, reproducible research
+```
+
+# Introduction
+
+([W](https://photos.lovelaces.org/share/eOsyK8ibSUKMgnCJFaP_DF76l4kKrMvDhQXidzvbh8KbOyfTawwZNREMN8YUQvUuV4s)hy work on this?)
+
+## Network Planning Tool (NPT) for Scotland
+
+Web app deployed at [npt.scot](https://www.npt.scot) for cycle network planning in Scotland.
+
+![](images/paste-1-2.png)
+
+::: notes
+-   New web-based strategic network planning tool that estimates cycling potential down to the street level.
+-   Builds on the functionality of the Propensity to Cycle Tool (PCT) and related tools.
+-   Funded by Transport Scotland and developed by the University of Leeds in collaboration with Sustrans Scotland.
+-   Open-source and hosted at [github.com/nptscot](https://github.com/nptscot).
+:::
+
+## Cycling by Design
+
+The bible of Scottish cycling infrastructure planning.
+
+<!-- https://www.transport.gov.scot/media/50323/cycling-by-design-update-2019-final-document-15-september-2021-1.pdf -->
+
+Available at [transport.gov.scot](https://www.transport.gov.scot/media/50323/cycling-by-design-update-2019-final-document-15-september-2021-1.pdf).
+
+![](images/paste-2.png)
+
+## Key features of the NPT
+
+-   Funded by Transport Scotland to support £millions of investment in active travel.
+-   Developed by the University of Leeds in collaboration with Sustrans Scotland.
+-   Open-source and hosted at [github.com/nptscot](https://github.com/nptscot).
+-   Integration of multiple layers into a single tool.
+-   Overcoming limitations of previous strategic network planning tools.
+-   Brings together more than a dozen datasets, including Ordnance Survey Mastermap and OpenStreetmap data products.
+-   Presents new geographic methods developed to support this work.
+-   Uses `osmactive` R package and `anime` Rust crate.
+
+# Existing cycle network quality layer {background-image="images/screencast-clos.gif"}
+
+# Streetspace layer
+
+See live demo at [npt.scot](https://www.npt.scot).
+
+<span style="font-size: small;">Contains OS data © Crown copyright and database rights 2025 OS licence number 100046668.</span>
+
+![](images/paste-3.png)
+
+## Key technical challenges
+
+```{mermaid}
+graph TD
+  subgraph data_sources ["Data Sources"]
+    direction TB
+    OS_MasterMap_Topo["OS MasterMap Topo"]
+    OS_MasterMap_Highways_Source["OS MasterMap Highways"]
+    OSM_Source["OpenStreetMap"]
+  end
+
+  subgraph processing_integration ["Processing & Integration"]
+    direction TB
+    Pavement_Polygons["Pavement polygons"]
+    Pavement_Widths["Pavement widths"]
+    Highway_Widths["Highway widths, Hierarchy, .."]
+    OSM_Derived["Max Speed, Type, ..."]
+  end
+
+  subgraph output_layer ["Output Layer"]
+    direction TB
+    OSM_Los["Level of Service layer"]
+    OS_OpenRoads["Streetspace layer"]
+
+  end
+
+  OS_MasterMap_Topo --> Pavement_Polygons
+  Pavement_Polygons --> Pavement_Widths
+  OS_MasterMap_Highways_Source --> Highway_Widths
+  OSM_Source --> OSM_Derived
+  Highway_Widths --> OSM_Los
+
+  Pavement_Widths --> OS_OpenRoads
+  Highway_Widths --> OS_OpenRoads
+  OSM_Derived --> OS_OpenRoads
+  OSM_Derived --> OSM_Los
+
+
+  style data_sources fill:#f0f0f0,stroke:#333,stroke-width:2px,color:#000
+  style processing_integration fill:#f0f0f0,stroke:#333,stroke-width:2px,color:#000
+  style output_layer fill:#f0f0f0,stroke:#333,stroke-width:2px,color:#000
+
+  %% Style definitions for better colors
+  style OS_MasterMap_Topo fill:#f9f,stroke:#333,stroke-width:2px,color:#000
+  style OS_MasterMap_Highways_Source fill:#f9f,stroke:#333,stroke-width:2px,color:#000
+  style OSM_Source fill:#f9f,stroke:#333,stroke-width:2px,color:#000
+
+  style Pavement_Polygons fill:#ccf,stroke:#333,stroke-width:2px,color:#000
+  style Pavement_Widths fill:#ccf,stroke:#333,stroke-width:2px,color:#000
+  style Highway_Widths fill:#ccf,stroke:#333,stroke-width:2px,color:#000
+  style OSM_Derived fill:#ccf,stroke:#333,stroke-width:2px,color:#000
+
+  style OS_OpenRoads fill:#9cf,stroke:#333,stroke-width:2px,color:#000
+
+  %% Style definition for the main graph background
+  classDef default fill:#f0f0f0,stroke:#333,stroke-width:2px,color:#000
+```
+
+::: notes
+-   Integrating multiple datasets into a single tool.
+-   Network joins
+:::
+
+# Datasets and methods
+
+## Datasets
+
+-   [**Ordnance Survey OpenRoads**]{style="color:darkblue;"}
+-   [**OS MasterMap Highways**]{style="color:darkblue;"}
+-   [**OS Mastermap Topography**]{style="color:darkblue;"}
+-   [**OpenStreetMap**]{style="color:darkblue;"}
+-   NRS (National Records of Scotland) data on travel to school
+-   NRS data on travel to work (Data Zone level)
+-   Scottish Household Survey (SHS) data
+-   National Travel Survey (NTS) data
+-   Data from spatial interaction models (SIMs)
+
+## Software
+
+Code is available and maintained at [github.com/nptscot](https://github.com/nptscot)
+
+-   Backend written in R
+
+-   Frontend of NPT web application written in 'vanilla' JavaScript
+
+-   NPW (Network Planning Workspace) web application written in Rust and Svelte
+
+-   See [nptscot.github.io/npw](https://nptscot.github.io/npw/)
+
+-   `mastermapr` R package for importing MasterMap datasets
+
+-   `osmactive` R package for classifying OSM data
+
+-   `anime` Rust crate for network integration
+
+## `anime` Rust crate
+
+![](images/paste-7.png)
+
+See [github.com/JosiahParry](https://github.com/JosiahParry/anime)
+
+## Key functions
+
+-   Functions including `get_travel_network()` and `classify_cycle_infrastructure()` from the `osmactive` package.
+-   Classify cycle infrastructure types based on the presence of cycle lanes, tracks, and other features.
+-   `distance_to_road()` function to calculate distances to roads.
+-   `get_pavement_widths()` function to calculate pavement widths
+-   `get_bus_routes()` function to determine bus lanes
+-   `classify_cycle_infrastructure()` function to classify cycle infrastructure
+
+## Live demo: getting active travel network data
+
+```{r}
+#| include: false
+#| eval: true
+library(dplyr)
+library(osmactive)
+library(tmap)
+```
+
+```{r}
+#| label: bristol
+#| eval: false
+#| echo: true
+#| results: hide
+remotes::install_github("nptscot/osmactive")
+library(osmactive)
+osm = get_travel_network("bristol")
+cycle_net = get_cycling_network(osm)
+drive_net = get_driving_network(osm)
+cycle_net = distance_to_road(cycle_net, drive_net)
+cycle_net = classify_cycle_infrastructure(cycle_net)
+```
+
+```{r}
+#| eval: false
+sf::write_sf(cycle_net, "cycle_network.geojson", delete_dsn = TRUE)
+```
+
+```{r}
+cycle_net = sf::read_sf("cycle_network.geojson")
+```
+
+```{r}
+#| label: plot
+#| eval: false
+plot_osm_tmap(cycle_net)
+```
+
+![](images/paste-9.png)
+
+## Interactive plotting
+
+Via Geocomputation with R 'stack' (tmap package, mapgl version in progress)
+
+See [github.com/nptscot/osmactive/releases](https://github.com/nptscot/osmactive/releases/download/v0.1/cycle_net_bristol.html) for interactive version
+
+```{r}
+#| echo: false
+#| eval: false
+tmap::tmap_mode("view")
+plot_osm_tmap(cycle_net)
+```
+
+![](images/paste-8.png)
+
+```{=html}
+<!-- # Results
+
+## Network Planning Tool for Scotland
+
+-   Web application for strategic cycle network planning.
+-   Key components:
+    -   Route network layer
+    -   Infrastructure and traffic layer
+    -   Street space layer
+    -   Core network layer
+    -   Network Planning Workspace (NPW) web application (<https://nptscot.github.io/npw/>)
+
+## Street space layer
+
+-   Categorises roads in accordance with Cycling by Design guidance.
+-   Methodology for classifying road spaces and cycle infrastructure.
+
+## Conclusion
+
+-   NPT is a cutting-edge web application for strategic cycle network planning.
+-   Unique feature: integration of multiple layers.
+-   New street space layer: step change in access to combined carriageway and corridor widths. -->
+```
+
+## Live demo
+
+See [www.npt.scot](https://www.npt.scot) for live demo.
+
+<!-- gif: -->
+
+![](images/screencast-clos.gif)
+
+## Future work
+
+-   Improve NPT by incorporating new datasets.
+-   Develop context-specific classifications in `osmactive` package.
+-   Work on the `anime` Rust crate and packages for ease of use (and paper)
+-   Support roll-out of methods in new places.
+-   Interested? Get in touch!
+
+Reproducible slides: [robinlovelace.github.io/gisruk2025](https://robinlovelace.github.io/gisruk2025)
+
+# Plugs
+
+## Transport data mini-hack, 8th May:
+
+Afternoon event at the University of Leeds before inaugural lecture on transport data science.
+<!-- https://itsleeds.github.io/tds/minihack-transport-data.html --> See [itsleeds.github.io](https://itsleeds.github.io/tds/minihack-transport-data.html) for details.
+
+![](images/paste-6.png)
+
+Reproducible slides: [robinlovelace.github.io/gisruk2025](https://robinlovelace.github.io/gisruk2025)
+
+## Want to learn more?
+
+Upcoming 2-day workshop on Data Science for Transport Planning (18th to 19th September).
+<!-- https://itsleeds.github.io/tds/dstp.html --> See [itsleeds.github.io](https://itsleeds.github.io/tds/dstp.html) for details.
+
+![](images/paste-5.png)
+
+Reproducible slides: [robinlovelace.github.io/gisruk2025](https://robinlovelace.github.io/gisruk2025)
+
+# Details
+
+## Road width measurements
+
+-   Carriageway width and corridor width are key measurements.
+-   Carriageway width determines if infrastructure can fit within the carriageway.
+-   Corridor width captures carriageway plus roadside features.
+-   `get_pavement_widths()` function in `osmactive` package.
+
+## Minimum cycle track and buffer widths
+
+-   Corridor width determines if footway can be reallocated for cycle infrastructure.
+-   Cycling by Design (CbD) guidance on widths and buffers.
+-   Speed limit data from OSM used for buffer widths.
+
+## Bus routes and road traffic assumptions
+
+-   Minimum space requirements for motor traffic depend on bus routes and lanes.
+-   Active Travel England cross section check tool.
+-   `get_bus_routes()` function in `osmactive` package.
