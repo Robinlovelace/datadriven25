@@ -41,6 +41,20 @@ execute:
   eval: true
 ---
 
+<!-- 9.30-10.00: Coffee
+10.00-10.10: Introduction
+10.10-10.30: Mark Fretwell
+10.30-10.50: Llinos Brown
+10.50-11.10: Nick Reed
+11.10-11.40: Coffee
+11.40-12.00: Francesca Bryden
+12.00-12.20: Robin Lovelace
+12.20-1.50: Lunch
+1.50-2.10: Tom Forth and Luke Strange
+2.10-2.30: Ben Nelmes and Corrin Reilly
+2.30-2.50: Ivo Wengraf
+2.50-3.00: Wrap up -->
+
 ## Introduction
 
 ([W](https://photos.lovelaces.org/share/eOsyK8ibSUKMgnCJFaP_DF76l4kKrMvDhQXidzvbh8KbOyfTawwZNREMN8YUQvUuV4s)hy work on this?)
