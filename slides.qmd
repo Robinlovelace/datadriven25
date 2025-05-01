@@ -41,7 +41,7 @@ execute:
   eval: true
 ---
 
-## Abstract
+<!-- ## Abstract
 
 Evidence on street networks and their potential changes under future scenarios is crucial for active travel planning.
 However, most active travel models rely on oversimplified street representations, using single variables like 'quietness', neglecting key factors such as footway widths.
@@ -51,7 +51,7 @@ The results are showcased in a web application hosted at www.npt.scot, demonstra
 
 ```         
 network analysis, transport planning, OpenStreetMap, active travel, reproducible research
-```
+``` -->
 
 # Introduction
 
@@ -228,7 +228,7 @@ library(tmap)
 #| results: hide
 remotes::install_github("nptscot/osmactive")
 library(osmactive)
-osm = get_travel_network("bristol")
+osm = get_travel_network("london")
 cycle_net = get_cycling_network(osm)
 drive_net = get_driving_network(osm)
 cycle_net = distance_to_road(cycle_net, drive_net)
