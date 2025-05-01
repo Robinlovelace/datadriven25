@@ -17,6 +17,7 @@ cp -rv ../gisruk2025/images .
 cp -rv ../gisruk2025/slides.qmd .
 cp -rv ../gisruk2025/_quarto.yml .
 cp -rv ../gisruk2025/.devcontainer.json .
+cp -rv ../gisruk2025/references.bib .
 # Or if you have it locally:
 cp -rv ../gisruk2025/. .
 git add slides.qmd
