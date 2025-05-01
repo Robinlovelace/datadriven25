@@ -90,17 +90,6 @@ Available at [transport.gov.scot](https://www.transport.gov.scot/media/50323/cyc
 
 ![](images/paste-11.png)
 
-## Key features of the NPT
-
--   Funded by Transport Scotland to support £millions of investment in active travel.
--   Developed by the University of Leeds in collaboration with Sustrans Scotland.
--   Open-source and hosted at [github.com/nptscot](https://github.com/nptscot).
--   Integration of multiple layers into a single tool.
--   Overcoming limitations of previous strategic network planning tools.
--   Brings together more than a dozen datasets, including Ordnance Survey Mastermap and OpenStreetmap data products.
--   Presents new geographic methods developed to support this work.
--   Uses `osmactive` R package and `anime` Rust crate.
-
 # Streetspace layer
 
 To be launched soon [npt.scot](https://www.npt.scot).
@@ -341,6 +330,17 @@ Upcoming 2-day workshop on Data Science for Transport Planning (18th to 19th Sep
 Reproducible slides: [robinlovelace.github.io/datadriven25](https://robinlovelace.github.io/datadriven25)
 
 # Further information {visibility="uncounted"}
+
+## Key features of the NPT {visibility="uncounted"}
+
+-   Funded by Transport Scotland to support £millions of investment in active travel.
+-   Developed by the University of Leeds in collaboration with Sustrans Scotland.
+-   Open-source and hosted at [github.com/nptscot](https://github.com/nptscot).
+-   Integration of multiple layers into a single tool.
+-   Overcoming limitations of previous strategic network planning tools.
+-   Brings together more than a dozen datasets, including Ordnance Survey Mastermap and OpenStreetmap data products.
+-   Presents new geographic methods developed to support this work.
+-   Uses `osmactive` R package and `anime` Rust crate.
 
 ## Live demo {visibility="uncounted"}
 
