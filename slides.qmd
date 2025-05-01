@@ -228,8 +228,9 @@ library(tmap)
 #| results: hide
 remotes::install_github("nptscot/osmactive")
 library(osmactive)
-case_study_location_area = zonebuilder::zb_zone("pall mall london", n_circles = 2) |>
+case_study_location_area = zonebuilder::zb_zone("pall mall london", n_circles = 1) |>
   sf::st_union()
+case_study_centroid = sf::st_centroid(case_study_location_area)
 # ?osmextract::oe_get
 osm = get_travel_network(case_study_location_area, boundary = case_study_location_area, boundary_type = "clipsrc")
 cycle_net = get_cycling_network(osm)
@@ -241,6 +242,7 @@ cycle_net = classify_cycle_infrastructure(cycle_net)
 ```{r}
 #| eval: false
 sf::write_sf(cycle_net, "cycle_network.geojson", delete_dsn = TRUE)
+fs::file_size("cycle_network.geojson")
 ```
 
 ```{r}
@@ -250,7 +252,8 @@ cycle_net = sf::read_sf("cycle_network.geojson")
 ```{r}
 #| label: plot
 #| eval: false
-plot_osm_tmap(cycle_net)
+plot_osm_tmap(cycle_net) +
+  tmap::qtm(case_study_centroid)
 ```
 
 ![](images/paste-9.png)
@@ -265,10 +268,11 @@ See [github.com/nptscot/osmactive/releases](https://github.com/nptscot/osmactive
 #| echo: false
 #| eval: false
 tmap::tmap_mode("view")
-plot_osm_tmap(cycle_net)
+m = plot_osm_tmap(cycle_net)
+tmap::tmap_save(m, "images/cycle_net_pall_mall.png")
 ```
 
-![](images/paste-8.png)
+![](images/cycle_net_pall_mall.png)
 
 ```{=html}
 <!-- # Results
