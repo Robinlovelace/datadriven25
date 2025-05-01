@@ -41,6 +41,7 @@ execute:
   eval: true
 ---
 
+```{=html}
 <!-- 9.30-10.00: Coffee
 10.00-10.10: Introduction
 10.10-10.30: Mark Fretwell
@@ -54,6 +55,7 @@ execute:
 2.10-2.30: Ben Nelmes and Corrin Reilly
 2.30-2.50: Ivo Wengraf
 2.50-3.00: Wrap up -->
+```
 
 ## Introduction
 
@@ -83,6 +85,10 @@ The bible of Scottish cycling infrastructure planning.
 Available at [transport.gov.scot](https://www.transport.gov.scot/media/50323/cycling-by-design-update-2019-final-document-15-september-2021-1.pdf).
 
 ![](images/paste-2.png)
+
+## Cross-sectional width guidance
+
+![](images/paste-11.png)
 
 ## Key features of the NPT
 
